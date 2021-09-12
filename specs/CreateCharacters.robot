@@ -2,7 +2,7 @@
 Documentation       Suite de Teste do cadastro de personagens na API da Marvel
 
 Library             RequestsLibrary
-Library             ${EXECDIR}/factories/Mv.py
+Library             ${EXECDIR}/resources/factories/Mv.py
 
 *Test Cases*
 Deve cadasrar um personagem
