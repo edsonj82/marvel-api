@@ -13,8 +13,30 @@ Deve cadasrar um personagem
     &{personagem}       Factory Mv
 
     ${response}         POST                
-    ...                 http://marvel.qaninja.academy/characters        
+    ...                 ${BASE_URL}/characters        
     ...                 json=${personagem}      
-    ...                 headers=${headers}
+    ...                 headers=${HEADERS}
+    ...                 expected_status=any
 
     Status Should Be    200     ${response}
+
+
+Não deve cadastrar com o mesmo nome
+
+    # Dado que Thanos ja existe no sistema
+    ${personagem}       Factory Mv
+
+    POST                ${BASE_URL}/characters
+    ...                 json=${personagem}      
+    ...                 headers=${HEADERS}
+    ...                 expected_status=any
+
+    # Quando faço uma requisição POST para a rota characters
+    ${response}         POST                
+    ...                 ${BASE_URL}/characters        
+    ...                 json=${personagem}      
+    ...                 headers=${HEADERS}
+    ...                 expected_status=any
+
+    # Então o código de retorno deve ser 409
+    Status Should Be    409     ${response}
