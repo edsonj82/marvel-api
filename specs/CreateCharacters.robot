@@ -8,37 +8,23 @@ Library             ${EXECDIR}/resources/factories/Mv.py
 *Test Cases*
 Deve cadasrar um personagem
 
-    Set Client Key     edsonj82@gmail.com
+    Set Client Key          edsonj82@gmail.com
 
-    &{personagem}       Factory Mv
+    &{personagem}           Factory Mv
+    ${response}             POST New Character      ${personagem}
 
-    ${response}         POST                
-    ...                 ${BASE_URL}/characters        
-    ...                 json=${personagem}      
-    ...                 headers=${HEADERS}
-    ...                 expected_status=any
-
-    Status Should Be    200     ${response}
+    Status Should Be        200     ${response}
 
 
 Não deve cadastrar com o mesmo nome
 
     # Dado que Thanos ja existe no sistema
-    ${personagem}       Factory Mv
-
-    POST                ${BASE_URL}/characters
-    ...                 json=${personagem}      
-    ...                 headers=${HEADERS}
-    ...                 expected_status=any
+    ${personagem}           Factory Mv
+    POST New Character      ${personagem}
 
     # Quando faço uma requisição POST para a rota characters
-    ${response}         POST                
-    ...                 ${BASE_URL}/characters        
-    ...                 json=${personagem}      
-    ...                 headers=${HEADERS}
-    ...                 expected_status=any
+    ${response}             POST New Character      ${personagem}
 
     # Então o código de retorno deve ser 409
-    Status Should Be    409     ${response}
-
-    Should Be Equal     ${response.json()}[error]       Character already exists :(
+    Status Should Be        409     ${response}
+    Should Be Equal         ${response.json()}[error]       Character already exists :(

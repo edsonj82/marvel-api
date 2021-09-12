@@ -1,7 +1,9 @@
 *Settings*
 Documentation           Suite principal na API da Marvel
 
-Library             RequestsLibrary
+Library                 RequestsLibrary
+
+Resource                roles/characters.robot
 
 *Variables*
 ${BASE_URL}             http://marvel.qaninja.academy
