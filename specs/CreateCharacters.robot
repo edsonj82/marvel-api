@@ -1,7 +1,8 @@
 *Settings*
 Documentation       Suite de Teste do cadastro de personagens na API da Marvel
 
-Library             RequestsLibrary
+Resource            ${EXECDIR}/resources/base.robot
+
 Library             ${EXECDIR}/resources/factories/Mv.py
 
 *Test Cases*
@@ -17,19 +18,3 @@ Deve cadasrar um personagem
     ...                 headers=${headers}
 
     Status Should Be    200     ${response}
-
-
-*Keywords*
-Set Client Key
-    [Arguments]         ${email}
-
-    &{usuario}          Create Dictionary       email=${email}
-    
-    ${response}         POST                    
-    ...                 http://marvel.qaninja.academy/accounts          
-    ...                 json=${usuario}    
-
-    ${client_key}       Set Variable            ${response.json()}[client_key]
-    &{HEADERS}          Create Dictionary       client_key=${client_key}
-
-    Set Suite Variable      ${HEADERS}
