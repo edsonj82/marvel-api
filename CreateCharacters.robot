@@ -7,7 +7,7 @@ Library             ${EXECDIR}/factories/Mv.py
 *Test Cases*
 Deve cadasrar um personagem
 
-    Account And Set Headers     edsonj82@gmail.com
+    Set Client Key     edsonj82@gmail.com
 
     &{personagem}       Factory Mv
 
@@ -20,7 +20,7 @@ Deve cadasrar um personagem
 
 
 *Keywords*
-Account And Set Headers
+Set Client Key
     [Arguments]         ${email}
 
     &{usuario}          Create Dictionary       email=${email}
