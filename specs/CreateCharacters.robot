@@ -5,10 +5,11 @@ Resource            ${EXECDIR}/resources/base.robot
 
 Library             ${EXECDIR}/resources/factories/Mv.py
 
+Suite Setup         Set Client Key          edsonj82@gmail.com
+
+
 *Test Cases*
 Deve cadasrar um personagem
-
-    Set Client Key          edsonj82@gmail.com
 
     &{personagem}           Factory Mv
     ${response}             POST New Character      ${personagem}
