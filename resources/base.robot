@@ -3,7 +3,7 @@ Documentation           Suite principal na API da Marvel
 
 Library                 RequestsLibrary
 
-Resource                roles/characters.robot
+Resource                routes/characters.robot
 
 *Variables*
 ${BASE_URL}             http://marvel.qaninja.academy
