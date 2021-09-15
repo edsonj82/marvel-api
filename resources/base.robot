@@ -2,6 +2,7 @@
 Documentation           Suite principal na API da Marvel
 
 Library                 RequestsLibrary
+Library                 helpers.py
 
 Resource                routes/characters.robot
 
