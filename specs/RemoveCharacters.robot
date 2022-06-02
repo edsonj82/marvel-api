@@ -18,7 +18,7 @@ Deve remover um personagem pelo Id
     Status Should Be        204         ${response}
 
     ${response2}        GET Character By Id  ${ciclope_id}
-    Status Should Be        404         ${response}
+    Status Should Be        404         ${response2}
 
 
 Não deve remover o personagem pelo Id
