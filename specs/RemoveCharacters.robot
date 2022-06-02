@@ -10,20 +10,20 @@ Suite Setup         Super Setup         edsonj82@outlook.com
 *Test Cases*
 Deve remover um personagem pelo Id
     ${personagem}       Factory Ciclope
-    ${ciclope}            POST New Character  ${personagem}
-    ${ciclope_id}         Set Variable        ${ciclope.json()}[_id]
+    ${ciclope}            POST New Character    ${personagem}
+    ${ciclope_id}         Set Variable          ${ciclope.json()}[_id]
 
-    ${response}     DELETE Character By Id    ${ciclope_id}
+    ${response}     DELETE Character By Id      ${ciclope_id}
 
-    Status Should Be        204         ${response}
+    Status Should Be        204                 ${response}
 
-    ${response2}        GET Character By Id  ${ciclope_id}
-    Status Should Be        404         ${response2}
+    ${response2}        GET Character By Id     ${ciclope_id}
+    Status Should Be        404                 ${response2}
 
 
-Não deve remover o personagem pelo Id
+Não deve encontrar o usuário pelo Id inexistente
 
 
     ${personagem_id}        GET Unique Id                            
-    ${response}             DELETE Character By Id         ${personagem_id}
+    ${response}             DELETE Character By Id      ${personagem_id}
     Status Should Be        404                         ${response}
