@@ -23,3 +23,13 @@ GET Character By Id
     ...                 expected_status=any
 
     [return]            ${response}
+
+DELETE Character By Id
+    [Arguments]         ${character_id}
+
+    ${response}         DELETE
+    ...                 ${BASE_URL}/characters/${character_id}
+    ...                 headers=${HEADERS}
+    ...                 expected_status=any
+
+    [return]            ${response}
